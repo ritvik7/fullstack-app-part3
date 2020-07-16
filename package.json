@@ -1,31 +1,40 @@
 {
-  "name": "node_project",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build:ui": "rm -rf build/ && cd ../frontend-server && npm run build && cp -r build/ ../backend-server",
-    "deploy": "git push heroku master",
-    "build:deploy": "npm run build:ui && git add . && git commit -m uibuild && npm run deploy",
-    "logs": "heroku logs -t",
-    "lint": "eslint .",
-    "lint-fix": "eslint . --fix"
-  },
-  "author": "",
-  "license": "ISC",
+  "name": "full-stack",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "mongoose": "^5.9.22",
-    "mongoose-unique-validator": "^2.0.3",
-    "morgan": "^1.10.0"
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "axios": "^0.19.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "server": "json-server -p3001 --watch db.json"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "devDependencies": {
-    "eslint": "^7.4.0",
-    "nodemon": "^2.0.4"
-  }
+    "json-server": "^0.16.1"
+  },
+  "proxy": "http://localhost:3001/"
 }
